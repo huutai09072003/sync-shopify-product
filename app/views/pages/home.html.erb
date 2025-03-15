@@ -1,0 +1,485 @@
+<header class="header p-4">
+  <a href="/" class="header__logo">
+    <%= image_tag('landing/logotype.svg') %>
+  </a>
+
+  <div class="header__mobile-button js--open-nav">
+    <button class="o-button o-button--icon-only o-button--color-secondary">
+      <span class="o-icon-burger"></span>
+      <span class="o-icon-x"></span>
+    </button>
+  </div>
+
+  <div class="header__nav-actions-wrapper">
+    <nav class="header__nav">
+      <ul>
+        <li><%= link_to('Solution', '#solution') %></li>
+        <li><%= link_to('Use cases', '#use-cases') %></li>
+        <li><%= link_to('Features', '#features') %></li>
+        <li><%= link_to('Shopify', 'https://apps.shopify.com/picture-it', :target => '_blank')%></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <%= link_to('Sign In', '/', class: 'o-button o-button--color-white') %>
+      <%= link_to('Sign Up', '/', class: 'o-button') %>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section section--hero">
+    <div class="container">
+      <div class="row flex--row-reverse flex--align-center">
+        <div class="col-12 md:col-6">
+          <%= image_tag('landing/hero--perspective.svg', class: 'w-full') %>
+        </div>
+
+        <div class="col-12 md:col-6 md:mb-0">
+          <div class="section__half-content">
+            <p>
+              Picture It for Shopify
+            </p>
+            <h1>
+              Let shoppers <br class="d-none xl:d-block" />
+              preview your art <br class="d-none xl:d-block" />
+              in their space
+            </h1>
+
+            <p class="testimonial">
+              Truly awesome app! Our customers and ourselves absolutely love it *especially in these times of social distancing*
+            </p>
+
+            <p class="testimonial_author">
+              - Garçon® Official Store
+            </p>
+
+            <%= link_to("Start your Free #{Chargeable::TRIAL_DAYS}-day Trial", '/', class: 'o-button o-button--large') %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="row flex--align-center">
+        <div class="col-12 md:col-6">
+          <%= image_tag('landing/seeing-is-believing.svg', class: 'w-full') %>
+        </div>
+
+        <div class="col-12 md:col-6 mb-4 md:mb-0">
+          <div class="section__half-content">
+            <h2>
+              Seeing is Believing
+            </h2>
+
+            <p>
+              It's pretty simple - art lovers are more likely to complete a purchase when they are convinced that their expectations will be met, and their visions come to life.
+            </p>
+
+            <p>
+              That's why we built Picture It, an easy to use yet powerful Shopify plugin for live preview of art in space.
+            </p>
+
+            <p class="small">
+              *keep scrolling*
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="solution">
+    <div class="container">
+      <div class="row flex--align-beginning mb-5 lg:mb-7">
+        <div class="col-12 lg:col-6">
+          <h2 class="lg:m-0">
+            Sell more by giving shoppers <br class="d-none xl:d-block" />
+            the tools they need
+          </h2>
+        </div>
+        <div class="col-12 lg:col-6">
+          <div class="lg:pl-6 lg:pr-6">
+            <p class="large">
+              Picture It solves common difficulties that prevent your customers from completing a purchase by increasing their confidence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <%= render partial: 'shared/landing/feature_partial', locals: {
+            image: 'landing/live-static-preview.svg',
+            title: 'Live or Static Preview',
+            text: 'With augmented reality shoppers are able to move around their space with your product in view, and get a clear idea of what works best. They can also upload a photo and preview products even when not on premises.'
+          }
+        %>
+
+        <%= render partial: 'shared/landing/feature_partial', locals: {
+            image: 'landing/will-it-fit.svg',
+            title: 'Will it Fit?',
+            text: 'Shoppers can evaluate whether your product matches colors and wheather it works with their existing pieces. And if you specify product dimensions they can see if it fits in terms of sizing as well.'
+          }
+        %>
+
+        <%= render partial: 'shared/landing/feature_partial', locals: {
+            image: 'landing/save-and-share.svg',
+            title: 'Save and Share',
+            text: 'Once shoppers use Picture It to preview a product they are given the option to save what they see to their device for further consideration. This helps increase conversions and reduce abandoned carts.'
+          }
+        %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="use-cases">
+    <div class="container">
+      <div class="row flex--row-reverse flex--align-center">
+        <div class="col-12 md:col-6">
+          <%= image_tag('landing/not-just-for-art.svg', class: 'w-full') %>
+        </div>
+
+        <div class="col-12 md:col-6">
+          <div class="section__half-content">
+            <h2>
+              Wait a minute! <br>
+              It's not just for art.
+            </h2>
+
+            <p>
+              While Picture It was designed for stores selling art, we saw other home goods retailers such as vase, rugs, furniture and similar successfully use it to convince shoppers. Even clothing stores are able to leverage Picture It's easy to use interface to preview garments of all kinds.
+            </p>
+
+            <p class="small">
+              This is thanks to our angle and rotation feature which allow your shoppers to adjust a product to fit the 3-dimensional aspects of any given space.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--anatomy section--collapse">
+    <div class="container">
+      <div class="row flex--align-beginning mb-5">
+        <div class="col-12 lg:col-6">
+          <h2 class="lg:m-0">
+            Anatomy of Picture It
+          </h2>
+        </div>
+        <div class="col-12 lg:col-6">
+          <div class="lg:pl-6 lg:pr-6">
+            <p class="large">
+              Shopowner, Picture It — Picture It, Shopowner.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anatomy slider -->
+    <div class="js--anatomy-slider splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <div class="container">
+              <div class="row flex--align-beginning pt-4 pb-4">
+                <div class="col-12">
+                  <h4 class="mb-0">
+                    Slide 1 of 2: Preview over Backgrounds
+                  </h4>
+                </div>
+              </div>
+            </div>
+
+            <%= image_tag('landing/anatomy-of-picture-it--background.svg', class: 'w-full') %>
+          </li>
+
+          <li class="splide__slide">
+            <div class="container">
+              <div class="row flex--align-beginning pt-4 pb-4">
+                <div class="col-12">
+                  <h4 class="mb-0">
+                    Slide 2 of 2: Augmented Reality
+                  </h4>
+                </div>
+              </div>
+            </div>
+
+            <%= image_tag('landing/anatomy-of-picture-it--camera.svg', class: 'w-full') %>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--modes">
+    <div class="container">
+      <div class="row flex--align-center mb-4">
+        <div class="col-12 md:col-6">
+          <%= image_tag('landing/mode--background.svg', class: 'w-full') %>
+        </div>
+
+        <div class="col-12 md:col-6 mb-4 md:mb-0">
+          <div class="section__half-content">
+            <!-- <p class="small mb-2">
+              The default mode
+            </p> -->
+
+            <h3>
+              Preview over Backgrounds
+            </h3>
+
+            <ul>
+              <li>Preview products over photos</li>
+              <li>20 stock photos included</li>
+              <li>Drag, resize and tilt your products</li>
+              <li>Shoppers can upload their own</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row flex--align-center">
+        <div class="col-12 md:col-6">
+          <%= image_tag('landing/mode--augmented-reality.svg', class: 'w-full') %>
+        </div>
+
+        <div class="col-12 md:col-6 mb-4 md:mb-0">
+          <div class="section__half-content">
+            <!-- <p class="small mb-2">
+              The camera mode
+            </p> -->
+            <h3>
+              Augmented Reality
+            </h3>
+
+
+            <ul>
+              <li>Preview products in over shoppers camera</li>
+              <li>Drag, resize and tilt your products</li>
+              <li>Shoppers can save and share what they see</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--collapse" id="how-it-works">
+    <div class="container">
+      <div class="row flex--align-beginning mb-5 lg:mb-7">
+        <div class="col-12 lg:col-6">
+          <h2 class="lg:m-0">
+            How it all comes together
+          </h2>
+        </div>
+        <div class="col-12 lg:col-6">
+          <div class="lg:pl-6 lg:pr-6">
+            <p class="large">
+              The four steps to becoming an elevated Shopify store
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <%= render partial: 'shared/landing/step_partial', locals: {
+            image: 'landing/step-1.svg',
+            title: 'Select products',
+            text: 'Enable Picture It for any selection of products in your store'
+          }
+        %>
+        <%= render partial: 'shared/landing/step_partial', locals: {
+            image: 'landing/step-2.svg',
+            title: 'Select images',
+            text: 'Choose which image of the product should be used in the preview or upload a new one'
+          }
+        %>
+        <%= render partial: 'shared/landing/step_partial', locals: {
+            image: 'landing/step-3.svg',
+            title: 'Preview enabled',
+            text: 'Shoppers will now be able to pull up the Live Preview by tapping our floating button on that product\'s page'
+          }
+        %>
+        <%= render partial: 'shared/landing/step_partial', locals: {
+            image: 'landing/step-4.svg',
+            title: 'Add to Cart or Save',
+            text: 'Shoppers can add to cart, or save what they see for further consideration'
+          }
+        %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="md:mt-5 text-center">
+      <%= link_to('Try Out Picture It for Free', '/', class: 'o-button o-button--large mb-3') %>
+      <p class="small">You can cancel your <%= Chargeable::TRIAL_DAYS %>-day trial any time</p>
+    </div>
+  </section>
+
+  <section class="section section--features" id="features">
+    <div class="container">
+      <div class="row flex--align-beginning mb-5 lg:mb-7">
+        <div class="col-12 lg:col-6">
+          <h2 class="lg:m-0">
+            Packed with Features
+          </h2>
+        </div>
+        <div class="col-12 lg:col-6">
+          <div class="lg:pl-6 lg:pr-6">
+            <p class="large">
+              Picture It comes with handy features that save you time and make the shopping experience better than expected.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <%= render partial: 'shared/landing/feature_partial', locals: {
+            image: 'landing/background-detection.svg',
+            title: 'Background Detection',
+            text: 'You will not have to learn and use expensive photo editing tools to prepare your product\'s images for Live Preview. One tap and — poof, like magic — your products are ready for live preview.'
+          }
+        %>
+
+        <%= render partial: 'shared/landing/feature_partial', locals: {
+            image: 'landing/wall-painter.svg',
+            title: 'Wall Painter',
+            text: 'With the built-in wall painter shoppers can set the color of the wall of one of our included backgrounds - bringing them another step closer to completing their purchase.'
+          }
+        %>
+
+        <%= render partial: 'shared/landing/feature_partial', locals: {
+            image: 'landing/fits-your-store.svg',
+            title: 'Fits Your Store',
+            text: 'Change text, color and placement of the "Live Preview" button. Upload your own backgrounds for an experience that feels even lighter.'
+          }
+        %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cta section--collapse">
+    <div class="container">
+      <div class="shapes">
+        <div class="shapes__element shapes__element--1"></div>
+        <div class="shapes__element shapes__element--2"></div>
+        <div class="shapes__element shapes__element--3"></div>
+        <div class="shapes__element shapes__element--4"></div>
+        <div class="shapes__element shapes__element--5"></div>
+        <div class="shapes__element shapes__element--6"></div>
+
+        <div class="row">
+          <div class="col-12 lg:col-6">
+            <h2 class="md:mt-0">
+              <!-- Give shoppers a clear vision of how products look in their space -->
+              Let shoppers see how <br class="d-none xl:d-block" />
+              your products look <br class="d-none xl:d-block" />
+              in their space
+            </h2>
+          </div>
+          <div class="col-12 lg:col-6">
+            <% if false %>
+              <!-- Change '/' with login_path' -->
+              <%= form_tag('/', :class => 'o-form o-form--large mt-5') do %>
+              <% if flash[:error] %>
+              <div class="error"><%= flash[:error] %></div>
+              <% end %>
+              <div class="o-form__item">
+                <input id="shop" name="shop" type="text" placeholder="example.myshopify.com" class="o-form__input">
+                <label for="shop" class="o-form__label">example.myshopify.com</label>
+              </div>
+
+              <button class="o-button o-button--large mt-3">Start your Free <%= Chargeable::TRIAL_DAYS %>-day Trial</button>
+              <% end %>
+            <% end %>
+
+            <form class="o-form o-form--large md:pl-6">
+              <div class="o-form__item has-action">
+                <div class="o-form__input-wrapper">
+                  <input id="form_large_action_button_right" type="text" name="form_large_action_button_right" class="o-form__input">
+                  <label for="form_large_action_button_right" class="o-form__label">shop.myshopify.com</label>
+                </div>
+
+                <div class="o-form__action">
+                  <button type="button" class="o-button">
+                    Start <%= Chargeable::TRIAL_DAYS %>-day Trial
+                  </button>
+                </div>
+
+                <p class="o-form__description">Your Shopify store address</p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="row flex--align-center mb-6 text-center lg:text-left flex--justify-center">
+          <div class="col-12 md:col-4">
+            <%= image_tag('landing/live-static-preview.svg', class: 'w-full mt-6 mb-6') %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--footer section--collapse pt-6 pb-6">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 md:col-8 lg:col-6">
+          <h4>
+            About the team behind Picture It
+          </h4>
+
+          <p class="small">
+            In 2016 we asked Shopify stores in the E-commerce Forums, "what do you need?" Art and home goods stores told us one thing: "ability for customers to preview our products in their home and offices." So we finally built it.
+          </p>
+
+          <p class="small lg:mb-0">
+            At Fork, we have experience in building and running various online services, such as our (first in class) social proof tool Fomo, florist's proposal creation tool Lobiloo, Shopify plugin for cross-selling products Cross Sell, and others.
+          </p>
+        </div>
+
+        <div class="col-12 md:col-8 lg:col-3">
+          <h4 class="lg:pl-6">
+            Product
+          </h4>
+
+          <ul class="pl-0 lg:pl-6">
+            <li><%= link_to('Solution', '#solution') %></li>
+            <li><%= link_to('Use cases', '#use-cases') %></li>
+            <li><%= link_to('How it works', '#how-it-works') %></li>
+            <li><%= link_to('Features', '#features') %></li>
+          </ul>
+        </div>
+
+        <div class="col-12 md:col-8 lg:col-3">
+          <h4>
+            External
+          </h4>
+
+          <ul class="pl-0">
+            <li><%= link_to('Picture It on Shopify', 'https://apps.shopify.com/picture-it', :target => '_blank')%></li>
+            <li><%= link_to('Privacy Policy', 'privacy-policy') %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--copyright section--collapsed">
+    <p>
+      Made with care, all rights reserved and junk, Picture It 2020
+    </p>
+  </section>
+</main>

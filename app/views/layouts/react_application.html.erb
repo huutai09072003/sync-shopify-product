@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= ShopifyApp.configuration.application_name %></title>
+
+    <meta charset="utf-8" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="<%= image_url('favicons/browserconfig.xml') %>">
+    <meta name="theme-color" content="#ffffff">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= image_url('favicons/apple-touch-icon.png') %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= image_url('favicons/favicon-32x32.png') %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= image_url('favicons/favicon-16x16.png') %>">
+    <link rel="manifest" href="<%= image_url('favicons/site.webmanifest') %>">
+    <link rel="mask-icon" href="<%= image_url('favicons/safari-pinned-tab.svg') %>" color="#FB5946">
+    <link rel="shortcut icon" href="<%= image_url('favicons/favicon.ico') %>">
+
+    <meta name="shopify-api-key" content="<%= ShopifyApp.configuration.api_key %>">
+    <% if ENV['SHOPIFY_DEBUG'].to_b || @current_shop&.shopify_debug? %>
+      <meta name="shopify-debug" content="web-vitals" />
+    <% end %>
+    <script src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y) {
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "lv64umem6z");
+    </script>
+  </head>
+
+  <body class="bg-gray-lightest">
+    <%= content_tag(:div, nil, id: 'shopify-app-init', data: {
+      api_key: ShopifyApp.configuration.api_key,
+      shop_origin: @shop_origin || (@current_shopify_session.shop if @current_shopify_session),
+      host: @host,
+      debug: Rails.env.development?,
+      basename: @basename || '',
+      shop_id: @shop&.id,
+      impersonate_mode: session[:impersonate] == '1',
+      upgrading_charge_path: "/subscription"
+    } ) %>
+
+    <div class="main react-app-container <%= 'hide-onboarding' if @current_shop&.hide_onboarding? %>" id="react-app" data-controller="modal">
+      <%= javascript_pack_tag 'react_application' %>
+    </div>
+
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "dac73767-fb6d-440b-8e85-a448c60567bd";
+      (function() {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

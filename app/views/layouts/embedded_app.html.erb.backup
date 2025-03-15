@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= ShopifyApp.configuration.application_name %></title>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+
+    <script>
+      window.configData = {
+        cdn_url: "<%= Rails.application.credentials.cdn_url %>"
+      }
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= image_url('favicons/apple-touch-icon.png') %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= image_url('favicons/favicon-32x32.png') %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= image_url('favicons/favicon-16x16.png') %>">
+    <link rel="manifest" href="<%= image_url('favicons/site.webmanifest') %>">
+    <link rel="mask-icon" href="<%= image_url('favicons/safari-pinned-tab.svg') %>" color="#FB5946">
+    <link rel="shortcut icon" href="<%= image_url('favicons/favicon.ico') %>">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="<%= image_url('favicons/browserconfig.xml') %>">
+    <meta name="theme-color" content="#ffffff">
+
+    <%= yield :head %>
+    <%= render partial: 'shared/script_tags' %>
+  </head>
+
+  <body class="bg-gray-lightest">
+
+    <%= render 'shared/impersonate' %>
+
+    <div class="app-wrapper">
+      <div class="app-content">
+        <main role="main">
+          <%= render "shared/header" %>
+          <div class="container mt-4 mb-6">
+            <%= yield %>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <% puts "EMBEDDED_APP PARAMS: #{params}" %>
+
+    <%= content_tag(:div, nil, id: 'shopify-app-init', data: {
+      api_key: ShopifyApp.configuration.api_key,
+      shop_origin: (@shop_session.domain if @shop_session),
+      host: session[:host] || @host,
+      load_path: params[:return_to] || root_path,
+      debug: Rails.env.development?
+    } ) %>
+
+    <% if content_for?(:javascript) %>
+      <div id="ContentForJavascript" data-turbolinks-temporary>
+        <%= yield :javascript %>
+      </div>
+    <% end %>
+
+    <%= yield :tail %>
+
+    <!-- locking into a version for content-security-policy whitelist -->
+    <script src="https://unpkg.com/@shopify/app-bridge@3.7.9/umd/index.js"></script>
+    <%= render 'shared/footer' %>
+  </body>
+</html>

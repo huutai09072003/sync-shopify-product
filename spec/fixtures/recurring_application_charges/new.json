@@ -1,0 +1,10 @@
+{
+  "recurring_application_charge":
+  {
+    "name":"Cross Sell - Pro Plan",
+    "price":19.99,
+    "trial_days":0,
+    "test":false,
+    "return_url":"http://test.host/charge/shopify/callback"
+  }
+}

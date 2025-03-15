@@ -1,0 +1,14 @@
+.react-app-container {
+  .popover {
+    display: inline-block;
+
+    .Polaris-Button {
+      box-shadow: none;
+      border    : 1px dashed #E3E3E3;
+
+      .Polaris-Button__Text {
+        font-weight: 450;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+# NOTE: for fixing error performing ActiveStorage::AnalyzeJob (Job ID: 40c6e712-d5aa-4495-97a9-0b48441baf18)
+# from Async(default) in 5001.35ms: ActiveJob::DeserializationError (Error while trying to deserialize arguments:
+# could not obtain a connection from the pool within 5.000 seconds (waited 5.000 seconds); all pooled connections were in use
+
+:queues:
+  - critical
+  - high
+  - default
+  - active_storage_analysis
+  - active_storage_purge

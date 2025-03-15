@@ -1,0 +1,30 @@
+.spinner-loading-parent--relative {
+  position: relative !important;
+  min-height: 100px;
+
+  .hide-spinner {
+    display: none !important;
+  }
+
+  .spinner-loading-mark {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 0.3s;
+
+    .spinner-loading {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+    }
+  }
+}

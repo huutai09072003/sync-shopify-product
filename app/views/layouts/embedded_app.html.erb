@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Picture It</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@shopify/app-bridge@3.7.9/umd/index.js"></script>
+  </head>
+
+  <body>
+    <div class="main react-app-container" id="react-app" data-controller="modal">
+      <%= javascript_pack_tag 'react_application' %>
+    </div>
+  </body>
+</html>

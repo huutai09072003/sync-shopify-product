@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Picture It</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= image_url('favicons/apple-touch-icon.png') %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= image_url('favicons/favicon-32x32.png') %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= image_url('favicons/favicon-16x16.png') %>">
+    <link rel="manifest" href="<%= image_url('favicons/site.webmanifest') %>">
+    <link rel="mask-icon" href="<%= image_url('favicons/safari-pinned-tab.svg') %>" color="#FB5946">
+    <link rel="shortcut icon" href="<%= image_url('favicons/favicon.ico') %>">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="<%= image_url('favicons/browserconfig.xml') %>">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="turbolinks-visit-control" content="reload">
+    <%= render partial: 'shared/script_tags' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
